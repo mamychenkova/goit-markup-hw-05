@@ -111,7 +111,7 @@ ul {
   align-items: center;
 }
 
-.fone:hover::before {
+.header-icon:hover {
   fill: #2196f3;
 }
 .mail::before {
@@ -414,6 +414,10 @@ h2 {
   justify-content: center;
   width: 44px;
   height: 44px;
+
+  transition-property: color, fill;
+  transition-duration: 1000ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .s {
   display: flex;
@@ -433,6 +437,9 @@ h2 {
   fill: #ffffff;
   background-color: #2196f3;
   border-radius: 50%;
+  transition-property: color, fill;
+  transition-duration: 1000ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .klient-link {
   fill: #afb1b8;
@@ -447,6 +454,8 @@ h2 {
 .klient-link:focus {
   border: 1px solid #2196f3;
   fill: #2196f3;
+  transition: border 2000ms cubic-bezier(0.4, 0, 0.2, 1),
+    fill 2000ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .element-client a {
   display: flex;
@@ -631,23 +640,29 @@ h2 {
 .tehnokrak-element:nth-child(3n) {
   margin-right: 0;
 }
+.tehnokrak-img {
+  position: relative;
+  overflow: hidden;
+}
 .tehnokrak-element:hover .tehnokrak-text {
-  display: block;
-  /* background: url(portfolio1.jpg); */
-  font-size: 18px;
-  line-height: 28px;
-  /* or 156% */
-  letter-spacing: 0.03em;
-  color: #ffffff;
-  background-color: #2196f3;
-  border-radius: 5px 5px 0px 0px;
-  width: 370px;
-  height: 294px;
-  padding: 63px 24px;
+  position: absolute;
+  bottom: 0;
+  opacity: 1;
+
+  transition-duration: 2000ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.tehnokrak-element:hover {
   box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.16), 0px 4px 4px rgba(0, 0, 0, 0.06),
     0px 1px 1px rgba(0, 0, 0, 0.12);
 }
-.tehnokrak h1 {
+
+.proekt-name {
+  margin-top: 20px;
+  margin-bottom: 0;
+  margin-bottom: 4px;
+  margin-left: 24px;
+  margin-right: 24px;
   font-weight: bold;
   font-size: 18px;
   line-height: 36px;
@@ -655,19 +670,12 @@ h2 {
   letter-spacing: 0.06em;
   color: #212121;
 }
-.proekt-name {
-  margin-top: 20px;
-  margin-bottom: 0;
-  margin-bottom: 4px;
-  margin-left: 24px;
-  margin-right: 24px;
-}
 .tehnokrak-produkt {
   font-weight: normal;
   font-size: 16px;
-  line-height: 30px;
+  line-height: 36px;
   /* identical to box height, or 187% */
-  letter-spacing: 0.03em;
+  letter-spacing: 0.06em;
   color: #757575;
 
   margin-bottom: 20px;
@@ -678,20 +686,23 @@ h2 {
 
 .tehnokrak-text {
   display: block;
-  background: url(portfolio1.jpg);
+  position: absolute;
+  bottom: -100%;
+  opacity: 0;
+
+  transition-duration: 2000ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
   font-size: 18px;
   line-height: 28px;
   /* or 156% */
   letter-spacing: 0.03em;
   color: #ffffff;
-  background-color: #2196f3;
+  background: rgba(33, 150, 243, 0.9);
   border-radius: 5px 5px 0px 0px;
   width: 370px;
   height: 294px;
   padding: 63px 24px;
-}
-.tehnokrak-text {
-  display: none;
 }
 
 .link-sub {
