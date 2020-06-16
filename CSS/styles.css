@@ -88,6 +88,7 @@ ul {
 }
 .current {
   border-bottom: 4px solid#2196f3;
+  border-radius: 2px;
 }
 
 .adress-nav {
@@ -646,9 +647,9 @@ h2 {
 }
 .tehnokrak-element:hover .tehnokrak-text {
   position: absolute;
-  bottom: 0;
+  bottom: -25px;
   opacity: 1;
-
+  transform: translateY(0);
   transition-duration: 2000ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -687,9 +688,9 @@ h2 {
 .tehnokrak-text {
   display: block;
   position: absolute;
-  bottom: -100%;
+  bottom: -50%;
   opacity: 0;
-
+  transform: translateY(-50%);
   transition-duration: 2000ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
