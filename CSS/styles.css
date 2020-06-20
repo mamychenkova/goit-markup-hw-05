@@ -84,13 +84,9 @@ ul {
 
 .site-nav-list {
   display: flex;
-
+  margin-right: 60px;
   margin-top: 32px;
-  padding-bottom: 32px;
-  position: relative;
-  margin-top: 20px;
-  margin-left: 20px;
-  overflow: hidden;
+  margin-left: 32px;
 }
 .site-nav-link {
   font-family: Roboto;
@@ -100,6 +96,8 @@ ul {
   line-height: 16px;
   letter-spacing: 0.02em;
   color: #212121;
+  position: relative;
+  overflow: hidden;
 
   display: inline-block;
   padding: 30px 0px;
@@ -108,14 +106,10 @@ ul {
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.site-nav :hover,
-.site-nav:focus {
+.site-nav-list :hover,
+.site-nav-list :focus {
   color: #2196f3;
 }
-/* .current {
-  border-bottom: 4px solid#2196f3;
-  border-radius: 2px;
-} */
 
 .adress-nav {
   display: flex;
@@ -123,22 +117,25 @@ ul {
   margin-left: auto;
 }
 /* разметка текущей страницы */
-.site-nav-link::before {
+.site-nav-list:hover .current::before {
   transform: translateX(-101%);
 }
-.site-nav-link::after {
+
+.site-nav-list:hover .current::after {
   transform: translateX(101%);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.site-nav-link::before,
-.site-nav-link::after {
+
+.current::after {
   content: '';
   position: absolute;
   bottom: 0;
   left: 0;
+  display: block;
   width: 100%;
   height: 4px;
-  background-color: #003cff;
+  border-radius: 2px;
+  background-color: #2196f3;
 }
 *,
 ::after,
@@ -146,38 +143,17 @@ ul {
   box-sizing: border-box;
 }
 
-.mail {
-  margin-right: 20px;
-}
-.fone::before {
-  display: inline-block;
-  content: '';
-  background-image: url(../images/fone.svg);
-  fill: #757575;
-  min-width: 10px;
-  height: 15px;
-  background-size: contain;
-  background-repeat: no-repeat;
-  margin-right: -20px;
-  align-items: center;
-}
-
-.header-icon:hover {
+.mail :hover,
+.fone :hover {
   fill: #2196f3;
 }
-.mail::before {
-  display: inline-block;
-  content: '';
-  background-image: url(../images/letter.svg);
-  min-width: 16px;
-  height: 11px;
-
-  background-size: contain;
-  background-repeat: no-repeat;
-  margin-right: -20px;
-
-  align-items: center;
+.mail,
+.fone {
+  margin-right: 15px;
+  margin-left: 15px;
+  fill: #757575;
 }
+
 .adress-nav a {
   font-size: 14px;
   line-height: 16px;
@@ -428,7 +404,7 @@ h2 {
   width: 44px;
   height: 44px;
 
-  transition-property: color, fill;
+  transition-property: color;
   transition-duration: 1000ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -440,16 +416,22 @@ h2 {
 .social {
   fill: #afb1b8;
   display: flex;
-  width: 44px;
-  height: 44px;
+  width: 20px;
+  height: 20px;
   align-items: center;
   justify-content: center;
+}
+.sociallink-element:hover,
+.sociallink-element:focus {
+  background-color: #2196f3;
+  border-radius: 50%;
+  transition-property: background-color;
+  transition-duration: 1500ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .sociallink-element:hover .social,
 .sociallink-element:focus .social {
   fill: #ffffff;
-  background-color: #2196f3;
-  border-radius: 50%;
   transition-property: color, fill;
   transition-duration: 1000ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -554,14 +536,7 @@ h2 {
   color: rgba(255, 255, 255, 0.1);
   margin-top: 16px;
 }
-/* .sociallink-end-element {
-  width: 44px;
-  height: 44px;
-  margin-right: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
+
 .link-end {
   width: 44px;
   height: 44px;
@@ -570,6 +545,7 @@ h2 {
   border-radius: 50%;
   justify-content: center;
   align-items: center;
+  margin-right: 10px;
 }
 .link-end:hover {
   background-color: #2196f3;
@@ -661,17 +637,19 @@ h2 {
   position: relative;
   overflow: hidden;
 }
-.tehnokrak-element:hover .tehnokrak-text {
-  position: absolute;
-  bottom: -25px;
-  opacity: 1;
-  transform: translateY(0);
+.tehnokrak-link {
+  width: 100%;
+}
+.tehnokrak-link:hover .overlay {
+  bottom: 0;
+  left: 0;
+  transform: translateX(0);
   transition-duration: 2000ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .tehnokrak-element:hover {
-  box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.16), 0px 4px 4px rgba(0, 0, 0, 0.06),
-    0px 1px 1px rgba(0, 0, 0, 0.12);
+  box-shadow: 1px 4px 6px rgba(126, 101, 101, 0.16),
+    0px 4px 4px rgba(0, 0, 0, 0.06), 0px 1px 1px rgba(0, 0, 0, 0.12);
 }
 
 .proekt-name {
@@ -701,12 +679,11 @@ h2 {
   margin-right: 24px;
 }
 
-.tehnokrak-text {
+.overlay {
   display: block;
   position: absolute;
-  bottom: -50%;
-  opacity: 0;
-  transform: translateY(-50%);
+  bottom: -100%;
+  transform: translateY(100%);
   transition-duration: 2000ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
